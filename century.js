@@ -20,9 +20,18 @@ function yearCentury(year) {
   if (+year < 0) {
     century[0] = 0;
   }
-  century = +century.join("") + 1;
+  if (
+    year.length > 2 &&
+    +year[year.length - 1] === 0 &&
+    +year[year.length - 2] === 0
+  ) {
+    century = +century.join("");
+  } else {
+    century = +century.join("") + 1;
+  }
   return century;
 }
+
 function yearZero(year) {
   if (+year === 0) {
     alert("Ну я говорил, что нулевого года не существует\nПопробуй еще раз");
